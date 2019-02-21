@@ -5,6 +5,8 @@
 #include <iostream>
 #include <windows.h>
 
+#include <string>
+#include <sstream>
 #include <stdarg.h>
 #include <vector>
 
@@ -13,25 +15,17 @@
 using namespace std;
 
 namespace Term {
+	class Widget;
+	class Window;
 
-	typedef struct {
-		int x,y;
-		int xs,ys;
-		// ...
-	}Win;
-
-	// extern
-	
-	extern void renderWindow(Win* win);
-	
 	extern void move_cursor(int x,int y);
 
-	extern bool press(Win* w,unsigned int key_code);
-
-	extern vector<Win*> Wins;	
+	extern vector<Window*> wins;	
 	
-	extern void render(int count,...);
-	extern void render();
+	extern void renderWindow(Window*);
+
+	extern void renderAll(int count,...);
+	extern void renderAll();
 } /* namespace Term */
 
 #endif
